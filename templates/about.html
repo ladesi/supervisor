@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load i18n %}
+  <!-- Page Content -->
+  <div class="container mt-5 mb-5">
+    <h3>{% trans 'About' %}</h3>
+    <p class="lead">{% trans 'This application aims to supervise projects in real time by collecting data via the HTTP protocol using JSON format' %}.</p>
+  </div>
+  <!-- /.container -->
+
+{% endblock content %}

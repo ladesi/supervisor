@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+{% load static %}
+{% load analyser_tag %}
+
+<header style="background:#114f58 !important" class="jumbotron my-3">
+    <div class="row text-white">
+        <div class="col col-md-8">
+            <img style="max-width: 10%;" class="rounded float-left img-fluid" src="{% static "" %}img/{{logo}}.svg" alt="..." class="img-thumbnail">
+            <h5 class="lead font-weight-bold">{{institute}}</h5>
+            <p class="lead">{% trans 'Project' %}: {% trans 'Energy Meter' %} <br/> {% trans 'Voltage and current measurement' %}.</p>
+        </div>
+
+        <div class="col col-md-4">
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                    {{ form.ip_addr|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-sm" type="submit">{% trans 'Update' %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- /.container tables-->
+<!-- <input type="hidden" id="analyser_data" data-url="{% url 'analyser-data' %}" /> -->
+<div id="analyser_table"> </div>
+
+<!-- /.container tables-->
+
+</body>
+{% endblock content %}

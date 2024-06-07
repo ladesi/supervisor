@@ -1,0 +1,111 @@
+{% load i18n %}
+{% load analyser_tag %}
+
+{% get_json p_device.ip_addr "v" as voltage %}
+{% get_json p_device.ip_addr "i" as current %}
+{% get_json p_device.ip_addr "z" as phase %}
+{% get_json p_device.ip_addr "pf" as pf %}
+{% get_json p_device.ip_addr "pw" as pw %}
+{% get_json p_device.ip_addr "pa" as pa %}
+{% get_json p_device.ip_addr "pr" as pr %}
+{% get_json p_device.ip_addr "ip" as server %}
+{% get_json p_device.ip_addr "dev" as device %}
+
+<style>
+  .table td {
+    font-size: 16pt !important;
+  }
+</style>
+
+<div class="card">
+    <h5 class="card-header lead font-weight-bold">Informações</h5>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="card border-primary mb-1">
+                        <div class="card-header text-primary">Status</div>
+                        <div class="card-body text-primary">
+                            <!-- <h5 class="card-title"></h5> -->
+                            <div class="">
+                                {% if device == "ESP-01" %}
+                                </span></pre><span class="badge badge-success">Conectado</span>
+                                {% elif device == "Modo Teste" %}
+                                </span></pre><span class="badge badge-warning">Testando</span>
+                                {% else %}
+                                </span></pre><span class="badge badge-danger">Desconectado</span>
+                                {% endif %}
+                            </div>
+                            <pre>Dispositivo: <span class="font-weight-bold">{{device}}</span></pre>
+                            <pre>ip: <span class="font-weight-bold">{{server}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-1 mb-3">
+    <!-- h2>Medidor de Energia</h2 -->
+    <div class="row">
+        <!-- Content Table 1-->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Análise em Tempo Real - Dados</div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Tensão</th>
+                                    <th>Corrente</th>
+                                    <th>Fase</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td> {{voltage}} V</td>
+                                    <td> {{current}} A</td>
+                                    <td> {{phase}}&deg </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-responsive -->
+                </div><!-- /.panel-body -->
+            </div><!-- /.panel -->
+        </div><!-- /.Table 1-->
+
+        <!-- /.Table 2-->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Análise em Tempo Real - Parâmetros</div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>FP</th>
+                                    <th>P_Ativa</th>
+                                    <th>P_Reativa</th>
+                                    <th>P_Aparente</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> {{pf}} </td>
+                                    <td> {{pw}} W </td>
+                                    <td> {{pr}} VAr</td>
+                                    <td> {{pa}} VA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- /.table-responsive -->
+                </div><!-- /.panel-body -->
+            </div><!-- /.panel -->
+        </div><!-- /.Table 2-->
+    </div>
+</div>

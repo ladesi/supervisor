@@ -1,0 +1,8 @@
+{% load analyser_tag %}
+{% load l10n %}
+
+{% get_random "v" as voltage %}
+{% get_random  "i" as current %}
+{% get_random  "z" as phase %}
+
+{ "v": {{ voltage|unlocalize  }}, "i": {{ current|unlocalize  }}, "z": {{ phase|unlocalize  }} }
