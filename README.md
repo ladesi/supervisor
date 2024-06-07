@@ -53,3 +53,17 @@ Para compilar os arquivo de tradução:
 ```{python}
 python manage.py compilemessages
 ```
+
+## Container com Docker ou Podman
+
+Inicialmente, deve-se gerar a imagem a partir da aplicação, referenciando o arquivo Containerfile:
+
+```{sh}
+podman build -f Containerfile -t supervisor
+```
+
+Após a imagem ser gerada, utilizar o comando a seguir para iniciar o container com a aplicação:
+
+```{sh}
+podman run -d -p 8000:8000 --name labcontrol --restart=always localhost/supervisor
+```
