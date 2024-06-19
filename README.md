@@ -8,9 +8,9 @@ Para Windows, o ambiente pode ser reproduzido via PowerShell ou a partir do WSL2
 
 ## Instruções
 
-Pode-se executar o arquivo init.sh ou seguir as instruções a seguir:
+O projeto encontra-se na pasta `app`. Para criar o ambiente necessário, pode-se executar o arquivo `init.sh` ou seguir as instruções a seguir:
 
-- Utilizar o comando `sh init.sh` ou `./init.sh` (se a permissão `x`, de execução, estiver presente no arquivo).
+- Dentro da pasta `app`, utilizar o comando `sh init.sh` ou `./init.sh` (se a permissão `x`, de execução, estiver presente no arquivo).
 
 Para dar permissão de execução ao arquivo:
 

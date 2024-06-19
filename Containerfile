@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8000
 WORKDIR /code
-COPY ./application/ /code
+COPY ./app/ /code
 RUN apk update
 RUN apk add --no-cache python3-dev py-pip
 RUN apk add --no-cache make automake gcc g++
