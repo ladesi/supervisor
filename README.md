@@ -1,10 +1,12 @@
 # Aplicação para o monitoramento de projetos
 
-A aplicação foi desenvolvida utilizando o **framework WEB** Django, versão 5.0.6, com a linguagem Python na versão 3.13.3.
+A aplicação foi desenvolvida utilizando o *framework WEB* [Django](https://docs.djangoproject.com/en/5.0/) (v5.0.6) com a linguagem Python na versão 3.12.3.
 
-O desenvolvimento foi realizado em ambiente linux, portanto, os comandos são direcionados ao shell padrão de uma distribuição deste kernel.
+Pode-se utilizar a partir da versão do Python mais antiga com suporte de segurança (3.8). Consultar o [guia de versões](https://devguide.python.org/versions/).
 
-Para Windows, o ambiente pode ser reproduzido via PowerShell ou a partir do WSL2.
+O desenvolvimento foi realizado em ambiente linux, portanto, os comandos do arquivo `init.sh` são direcionados ao shell padrão de uma distribuição deste kernel.
+
+Para Windows, o ambiente pode ser reproduzido via WSL2 ou pelo PowerShell utilizando os comandos equivalentes.
 
 ## Instruções
 
@@ -12,13 +14,13 @@ O projeto encontra-se na pasta `app`. Para criar o ambiente necessário, pode-se
 
 - Dentro da pasta `app`, utilizar o comando `sh init.sh` ou `./init.sh` (se a permissão `x`, de execução, estiver presente no arquivo).
 
-Para dar permissão de execução ao arquivo:
+Para dar permissão de execução ao arquivo para o usuário atual:
 
 ```{sh}
 chmod u+x init.sh
 ```
 
-1. Crie um ambiente virtual utilizando o módulo `env`:
+1. Crie um ambiente virtual utilizando o módulo `venv`:
 
 ```{python}
 python -m venv venv
@@ -36,7 +38,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. Inicie o servidor:
+4. Gere os arquivos de tradução:
+
+```{python}
+python manage.py compilemessages
+```
+
+obs: Para alterar a linguagem da aplicação, deve-se atribuir à variável `LANGUAGE_CODE` (presente na linha `110` do arquivo `app/lab_control/settings.py`) o código da linguagem desejada. O padrão é `pt-br`, para inglês deve-se definí-la para `en-us`.
+
+5. Inicie o servidor:
 
 ```{python}
 python manage.py runserver 0.0.0.0:8000 --insecure
@@ -47,12 +57,6 @@ python manage.py runserver 0.0.0.0:8000 --insecure
 - A opção `--insecure` é utilizada para acesso aos arquivos estáticos.
 
 - Sem ela, pode-se instalar o pacote `whitenoise`, mas, para esta aplicação, faz-se desnecessário.
-
-Para compilar os arquivo de tradução:
-
-```{python}
-python manage.py compilemessages
-```
 
 ## Container com Docker ou Podman
 
