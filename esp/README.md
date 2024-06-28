@@ -12,6 +12,8 @@ A programação do módulo é realizada através da IDE do Arduino, disponível 
 
 ## Programação da placa
 
+IMPORTANTE: Para a gravação do dispositivo ser realizada com êxito, o pino `GPIO0` deve ser conectado ao `GND`. Alguns modelos de gravador (adaptador Serial-USB) apresentam uma chave HH que possibilita esta conexão. Após a gravação, os pinos devem ser desconectados.
+
 - Inicialmente, escolha a opção `Generic ESP8266 Module` em **Ferramentas > Placa**.
 
 - Abra o arquivo **main.c**.
