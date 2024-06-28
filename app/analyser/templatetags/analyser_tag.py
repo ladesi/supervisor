@@ -10,29 +10,30 @@ import numpy as np
 register = template.Library()
 
 @register.simple_tag
-def get_json(link, n):
-    if link == '127.0.0.1':
-        nlink = f'http://127.0.0.1:8000/{reverse("analyser-data")}'
-        # nlink = 'http://localhost:8000/medidor/data'
-        dev = 'Modo Teste'
+def get_json(IP_ADDRESS, n):
+    if IP_ADDRESS == '127.0.0.1':
+        REQUEST_URL = f'http://{IP_ADDRESS}:8000/{reverse("analyser-data")}'
+        DEVICE_NAME = 'Modo Teste'
     else:
-        nlink = f'http://{link}'
-        dev = 'ESP-01'
+        REQUEST_URL = f'http://{IP_ADDRESS}'
+        DEVICE_NAME = 'ESP-01'
+
     try:
-        r = requests.get(nlink)
+        r = requests.get(REQUEST_URL)
     except requests.exceptions.RequestException as e:
-        nlink = f'http://127.0.0.1:8000/{reverse("analyser-data")}'
-        # nlink = "http://localhost:8000/medidor/data"
-        dev = 'IP Inválido - Modo Teste'
-        s = requests.get(nlink)
+        REQUEST_URL = f'http://127.0.0.1:8000/{reverse("analyser-data")}'
+        DEVICE_NAME = 'IP Inválido - Modo Teste'
+        s = requests.get(REQUEST_URL)
         data = s.request.url
-    t = requests.get(nlink)
+
+    t = requests.get(REQUEST_URL)
     values = json.loads(t.text)
     v = round(21*(values["v"]/0.3125),1)
     i = round(values["i"],2)
     theta = round(values["z"])
     aux = round(values["z"])
     z = round(np.deg2rad(theta),2)
+
     if (np.sin(z) <= 0):
         theta = round(360 - theta)
 
@@ -65,9 +66,9 @@ def get_json(link, n):
     elif n == "pr":
         return pr
     elif n == "ip":
-        return nlink
+        return IP_ADDRESS
     elif n == "dev":
-        return dev
+        return DEVICE_NAME
     else:
         return values
 
