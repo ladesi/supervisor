@@ -49,14 +49,12 @@ obs: Para alterar a linguagem da aplicação, deve-se atribuir à variável `LAN
 5. Inicie o servidor:
 
 ```{python}
-python manage.py runserver 0.0.0.0:8000 --insecure
+python manage.py runserver 0.0.0.0:8000
 ```
 
 ### Observações
 
-- A opção `--insecure` é utilizada para acesso aos arquivos estáticos.
-
-- Sem ela, pode-se instalar o pacote `whitenoise`, mas, para esta aplicação, faz-se desnecessário.
+- O pacote `whitenoise` é utilizado para acesso aos arquivos estáticos, sem ele deve-se adicionar o argumento `--insecure` ao comando `runserver`, ou seja: `python manage.py runserver 0.0.0.0:8000 --insecure`.
 
 ## Container com Docker ou Podman
 
