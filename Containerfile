@@ -11,6 +11,6 @@ RUN apk add --no-cache python3-dev py-pip
 RUN apk add --no-cache make automake gcc g++
 RUN pip install -r requirements.txt --break-system-packages
 RUN pip install tzdata --break-system-packages
-ENTRYPOINT python manage.py runserver 0.0.0.0:${PORT} --insecure
+ENTRYPOINT python manage.py runserver 0.0.0.0:${PORT}
 EXPOSE ${PORT}
 VOLUME /code
