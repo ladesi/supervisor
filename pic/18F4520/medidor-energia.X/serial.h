@@ -1,6 +1,5 @@
 #ifndef SERIAL_HEADER
 #define SERIAL_HEADER
-#endif
 
 #define _XTAL_FREQ 20000000
 
@@ -25,3 +24,5 @@ void serial_config(void);
 void tx_data(unsigned char data);
 void float_send(float aux);
 void json_data(float v, float i, float p);
+
+#endif

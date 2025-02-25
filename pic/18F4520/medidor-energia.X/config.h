@@ -1,7 +1,5 @@
 #ifndef CONFIG_HEADER
 #define	CONFIG_HEADER
-#endif
-
 
 // PIC18F4520 Configuration Bit Settings
 
@@ -104,3 +102,5 @@
 // prototypes
 void config(void);
 unsigned int adc_read(int port);
+
+#endif
