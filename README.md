@@ -1,5 +1,7 @@
 # Aplicação para o monitoramento de projetos
 
+[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](LICENSE)
+
 A aplicação foi desenvolvida utilizando o *framework WEB* [Django](https://docs.djangoproject.com/en/5.0/) (v5.0.6) com a linguagem Python na versão 3.12.3.
 
 Pode-se utilizar a partir da versão do Python mais antiga com suporte de segurança (3.8). Consultar o [guia de versões](https://devguide.python.org/versions/).
@@ -56,7 +58,9 @@ python manage.py runserver 0.0.0.0:8000
 
 - O pacote `whitenoise` é utilizado para acesso aos arquivos estáticos, sem ele deve-se adicionar o argumento `--insecure` ao comando `runserver`, ou seja: `python manage.py runserver 0.0.0.0:8000 --insecure`.
 
-## Container com Docker ou Podman
+## Aplicação em container
+
+- Testado com a ferramenta podman.
 
 Inicialmente, deve-se gerar a imagem a partir da aplicação, referenciando o arquivo Containerfile:
 
