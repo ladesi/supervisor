@@ -1,6 +1,6 @@
 # Aplicação para o monitoramento de projetos
 
-[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](LICENSE.md)
 
 A aplicação foi desenvolvida utilizando o *framework WEB* [Django](https://docs.djangoproject.com/en/5.0/) (v5.0.6) com a linguagem Python na versão 3.12.3.
 
