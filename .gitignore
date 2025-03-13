@@ -119,3 +119,8 @@ target/
 *.pyc
 local_settings.py
 .env
+
+# aux file
+**/.venv
+**/venv
+**/init.sh
